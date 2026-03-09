@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/admngn/555.git
     targetRevision: HEAD
-    path: apps/todo-api
+    path: apps/todo-api/overlays/prod
   destination:
     server: https://kubernetes.default.svc
-    namespace: todo-api
+    namespace: todo-api-prod
   syncPolicy:
     automated:
       prune: true
