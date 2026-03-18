@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todo-api
-  namespace: todo-api
   labels:
     app: todo-api
 spec:
@@ -17,17 +16,13 @@ spec:
     spec:
       containers:
         - name: todo-api
-          image: docker.io/library/nginx:alpine
-          # ⚠️ Remplacez par votre image Docker réelle
-          # Ex: image: docker.io/monuser/todo-api:v1.0.0
+          image: docker.io/adame555/todo-api:v1.0.0
           ports:
-            - containerPort: 80
+            - containerPort: 8000
               name: http
           env:
             - name: PORT
-              value: "80"
-            - name: NODE_ENV
-              value: "production"
+              value: "8000"
           resources:
             requests:
               cpu: "100m"
@@ -37,13 +32,13 @@ spec:
               memory: "256Mi"
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
             initialDelaySeconds: 5
             periodSeconds: 5

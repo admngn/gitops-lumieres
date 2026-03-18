@@ -1,17 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: todo-api
+  name: dev
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/admngn/555.git
     targetRevision: HEAD
-    path: apps/todo-api/overlays/dev
+    path: apps/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: todo-api-dev
   syncPolicy:
     automated:
       prune: true
