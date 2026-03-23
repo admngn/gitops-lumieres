@@ -9,13 +9,12 @@ Repo GitOps pour le déploiement de la **todo-api** et du **game-2048** via Argo
 ```
 gitops-lumieres/
 ├── apps/
-│   └── todo-api/
-│       ├── base/                        # Manifests K8s de base (Kustomize)
-│       │   ├── todos-api/               # Deployment + Service de la todo-api
-│       │   └── game-2048/               # Deployment + Service + Ingress + Namespace
-│       └── overlays/
-│           ├── dev/                     # Env dev : 1 replica + game-2048
-│           └── prod/                    # Env prod : 3 replicas
+│     ├── base/                        # Manifests K8s de base (Kustomize)
+│     │   ├── todos-api/               # Deployment + Service de la todo-api
+│     │   └── game-2048/               # Deployment + Service + Ingress + Namespace
+│     └── overlays/
+│         ├── dev/                     # Env dev : 1 replica + game-2048
+│         └── prod/                    # Env prod : 3 replicas
 ├── apps-code/
 │   └── docker-2048/                     # Code source + Dockerfile du jeu 2048
 ├── argocd/
